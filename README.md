@@ -1,6 +1,5 @@
-# 🚀 La Arquitectura de la Conexión: Landing Page Ultra-Optimizada
+# 🚀 La Arquitectura de la Pasión: Landing Page Ultra-Optimizada
 
-[![Etiqueta: Performance](https://img.shields.io/badge/Performance-100%25_Score-E3B505?style=for-the-badge&logo=google-chrome)]()
 [![Etiqueta: Tecnología](https://img.shields.io/badge/Tecnología-HTML_Puro_%26_CSS_Grid-5A8D9F?style=for-the-badge&logo=html5)]()
 
 Una Landing Page de alta conversión construida sin frameworks JS (Vanilla Architecture) para garantizar tiempos de carga **instantáneos** en dispositivos antiguos y móviles (Core Web Vitals óptimos).
