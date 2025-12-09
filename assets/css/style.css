@@ -1,0 +1,237 @@
+/* =================================================================
+   assets/css/style.css
+   CSS PURO + Rojo Predominante + Transiciones
+   ================================================================= */
+
+/* 1. Reset Básico y Variables (ROJO PREDOMINANTE) */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  /* Fondo Blanco Puro y Contraste */
+  --color-background: #FFFFFF; 
+  --color-text: #121212;      
+  
+  /* Paleta de Marca Única (Rojo Predominante) */
+  --color-primary: #B71C1C;          /* Rojo Ladrillo Profundo (Pasión/Autoridad) */
+  --color-secondary: #FFD700;        /* Dorado Sutil (Calidez/Énfasis) */
+  --color-hover: #D32F2F;            /* Rojo más brillante para el HOVER */
+  
+  /* Tipografía y Espaciado */
+  --font-serif: 'Lora', serif;
+  --font-sans: 'Inter', sans-serif;
+  --spacing: 0.8rem; 
+  --border-radius: 4px; 
+}
+
+/* 2. Estilos Base (Fondo Blanco Garantizado) */
+html, body {
+    background-color: var(--color-background) !important;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.5; 
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Evitar scroll horizontal por animaciones */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-primary); 
+  margin-bottom: var(--spacing);
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw + 1rem, 3.5rem); 
+  padding-bottom: var(--spacing);
+  border-bottom: 2px solid var(--color-secondary); /* Separador sutil */
+}
+
+/* 3. Layout de Diálogo Fluyente (CSS GRID PURO) */
+main { max-width: 100%; padding: 0; margin: 0; }
+
+.dialog-section {
+    padding: var(--spacing) 4%; 
+    min-height: auto; /* Altura auto para permitir más contenido */
+    padding-top: calc(var(--spacing) * 3);
+    padding-bottom: calc(var(--spacing) * 3);
+    background-color: var(--color-background); 
+}
+
+.dialog-content {
+    padding: 0;
+    margin-bottom: var(--spacing);
+}
+
+@media (min-width: 768px) {
+    .dialog-section {
+        display: grid;
+        grid-template-columns: 55% 35%; /* Más texto a la izquierda, imagen a la derecha */
+        gap: 10%; 
+        padding: var(--spacing) 8%;
+    }
+    
+    .left-aligned .dialog-content { grid-column: 1 / 2; text-align: left; }
+    .right-aligned .dialog-content { grid-column: 2 / 3; text-align: right; }
+    
+    /* Invertir el orden de columna para el layout de 'diálogo' */
+    .right-aligned { grid-template-areas: "image content"; }
+    .right-aligned .dialog-content { grid-area: content; }
+    .right-aligned .dialog-media { grid-area: image; }
+
+    .left-aligned { grid-template-areas: "content image"; }
+    .left-aligned .dialog-content { grid-area: content; }
+    .left-aligned .dialog-media { grid-area: image; }
+}
+
+/* 4. ANIMACIÓN DE ENTRADA FLUIDA (TRANSICIÓN) */
+
+/* Estado inicial: El elemento está invisible y ligeramente desplazado */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Clase que se añade con JavaScript (Intersection Observer) para la animación */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 5. EL BOTÓN CTA */
+.cta-perfect {
+  background-color: var(--color-primary); /* Rojo dominante */
+  color: #FFFFFF; /* Texto blanco en botón rojo */
+  border: none;
+  font-size: 1.1rem; 
+  font-weight: 900;
+  padding: 1rem 2.5rem;
+  letter-spacing: 1px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(183, 28, 28, 0.4); /* Sombra roja sutil */
+  transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cta-perfect:hover {
+  transform: translateY(-4px) scale(1.01); 
+  box-shadow: 0 15px 35px rgba(183, 28, 28, 0.6); 
+  background-color: var(--color-hover); 
+  cursor: pointer;
+}
+
+/* 6. Estilos para Imágenes y Medios Adaptativos */
+.dialog-media {
+    /* Contenedor que maneja la imagen en el Grid */
+    width: 100%; 
+    height: auto;
+    margin-top: var(--spacing); /* Espacio superior para separación móvil */
+    margin-bottom: var(--spacing);
+}
+
+.dialog-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    transition: transform 0.3s ease;
+}
+
+.dialog-media img:hover {
+    transform: scale(1.02); /* Efecto sutil de zoom en el hover */
+}
+
+/* Modificación de Layout Desktop (para asegurar que las imágenes ocupen su columna) */
+@media (min-width: 768px) {
+    
+    /* Aseguramos el orden visual de contenido e imagen */
+    .left-aligned { grid-template-areas: "content media"; }
+    .left-aligned .dialog-content { grid-area: content; }
+    .left-aligned .dialog-media { grid-area: media; } /* Imagen a la derecha */
+
+    .right-aligned { grid-template-areas: "media content"; }
+    .right-aligned .dialog-content { grid-area: content; }
+    .right-aligned .dialog-media { grid-area: media; } /* Imagen a la izquierda */
+
+    /* Forzamos a que el elemento de medios se alinee verticalmente */
+    .dialog-section {
+        align-items: center; 
+    }
+}
+
+/* Estilos de Formulario: Moderno y Elegante */
+
+/* Input: Borde sutil, padding generoso y foco en color primario */
+input[type="email"] {
+    width: 100%;
+    padding: 1.2rem;
+    margin-bottom: var(--spacing);
+    border: 2px solid #DDDDDD; /* Borde gris muy suave */
+    border-radius: var(--border-radius);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Efecto de Foco (Focus) Moderno: Se ilumina con el color primario (Rojo) */
+input[type="email"]:focus {
+    outline: none; 
+    border-color: var(--color-primary); /* Borde rojo al enfocar */
+    box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.2); /* Sombra sutil de foco */
+}
+
+/* Botón de Submit */
+button[type="submit"] {
+    /* Reiniciar los estilos por defecto del navegador */
+    all: unset; 
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--color-secondary) !important;
+    color: var(--color-text) !important;
+    font-size: 1.1rem; 
+    font-weight: 900;
+    padding: 1rem 2.5rem;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius);
+    
+    /* Transición y Sombra */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: block; /* Ocupa todo el ancho disponible para ser más visible */
+    margin: 0 auto; /* Centrar el botón */
+}
+
+/* HOVER EFFECT */
+button[type="submit"]:hover {
+    transform: translateY(-5px) scale(1.02); /* Elevación 3D */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); /* Sombra intensa */
+}
+
+
+/* 6. Estilos del Footer: Mínimo, pero Elegante */
+footer {
+    background-color: var(--color-primary); /* Fondo rojo para terminar fuerte */
+    color: #FFFFFF; /* Texto blanco sobre fondo rojo */
+    padding: calc(var(--spacing) * 2) 0; /* Padding vertical generoso */
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--color-secondary); /* Enlaces en dorado para contraste */
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--color-hover); /* Dorado más brillante al pasar el ratón */
+    text-decoration: underline;
+}

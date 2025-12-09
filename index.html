@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Comunicación Consciente: Transforma Vínculos con el Poder del Rojo | [Marca]</title>
+    <meta name="description" content="Domina el arte del Diálogo Fluyente. Descubre cómo la pasión y la claridad en la comunicación construyen relaciones inquebrantables.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Lora:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<main> 
+    
+    <section id="hero" class="dialog-section left-aligned">
+        <div class="dialog-content fade-in">
+            <h1>Transfórma tu Comunicación: Vínculos Fuertes y Duraderos | La Arquitectura de la Pasión.</h1>
+            <p>Deje a un lado el miedo, el contenido y la construcción. Las relaciones auténticas se basan en la empatía en contexto y la expresión sin filtros. Esta página le mostrará el método exacto para dominar la Comunicación Consciente, eliminando malentendidos y creando conexiones que resisten el tiempo. Más de 1000 personas ya han adoptado este flujo.</p>
+            
+            <a href="#oferta" class="cta-perfect">¡Quiero mi Kit de Conversación Perfecta Ahora! &rarr;</a>
+        </div>
+        <div class="dialog-media fade-in">
+        <img src="assets/img/hero-connection.jpg" alt="Imagen de dos personas conectando con pasión." loading="eager">
+    </div>
+    </section>
+
+    <section id="pilar-1" class="dialog-section right-aligned">
+        <div class="dialog-content fade-in">
+            <h2>El Bloqueo: El Silencio Ruidoso</h2>
+            <article>
+                <p>La mayoría de los conflictos inician no por lo que se dice, sino por lo que se asume. ¿Con qué frecuencia realmente escuchas, en lugar de solo esperar tu turno para hablar? Esta es la raíz de la desconexión. La escucha activa es una disciplina que requiere dejar el ego a un lado. Le ofrecemos técnicas probadas para silenciar su mente y procesar las palabras, el tono y el lenguaje corporal de su pareja o amigo. Este nivel de atención es lo que transforma una discusión en un verdadero entendimiento mutuo. No es solo oír, es entender.</p>
+                <a href="#pilar-2" class="cta-perfect">Continuar al Pilar de Expresión</a>
+            </article>
+        </div>
+        <div class="dialog-media fade-in">
+                <img src="assets/img/pilar-escucha.jpg" alt="Imagen de una persona con atención plena escuchando." loading="lazy">
+            </div>
+    </section>
+
+    <section id="pilar-2" class="dialog-section left-aligned">
+        <div class="dialog-content fade-in">
+            <h2>La Herramienta: El Lenguaje 'Yo' y la Vulnerabilidad</h2>
+            <article>
+                <p>Deje de usar el lenguaje de acusación ('Tú siempre me haces sentir...') que activa defensas. Adopte la expresión consciente ('Yo me siento así cuando...') para abrir el canal de conexión y vulnerabilidad. La verdadera comunicación se basa en la honestidad de la emoción, no en el juicio del otro. Esto requiere coraje. Este kit le proporciona guiones exactos para expresar frustración o amor sin dañar el vínculo. ¡La forma en que se comunica define su destino relacional!</p>
+            </article>
+        </div>
+         <div class="dialog-media fade-in">
+                 <img src="assets/img/pilar-crecimiento.jpg" alt="Imagen de una pequeña planta creciendo desde la tierra." loading="lazy">
+             </div>
+    </section>
+
+   <section id="oferta" class="dialog-section" style="text-align: center; background-color: var(--color-primary);" role="region" aria-label="Registro de Oferta Final">
+           <div class="dialog-content fade-in" style="grid-column: 1 / 3; color: #FFFFFF;">
+                <h2>Es Hora de Construir la Relación que Mereces. Actúe Hoy.</h2>
+               
+                <p style="margin-bottom: calc(var(--spacing) * 2); font-size: 1.2rem;">Ingrese su email para acceder instantáneamente a las 5 técnicas que 1000 personas ya utilizan para la conexión profunda. Es rápido, fácil y transforma vidas.</p>
+                
+               <form method="post" action="#" style="max-width: 400px; margin: 0 auto;">
+                   <input type="email" id="email" name="email" required placeholder="tu.nombre@email.com" aria-label="Tu Email">
+                   
+                  <button type="submit">¡Empezar mi Transformación Ahora!</button>
+               </form>
+           </div>
+       </section>
+   </main>
+
+   <script>
+       const sections = document.querySelectorAll('.fade-in');
+
+       const observer = new IntersectionObserver(entries => {
+           entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                   entry.target.classList.add('visible');
+                   observer.unobserve(entry.target); 
+               }
+           });
+       }, {
+           threshold: 0.1 
+       });
+
+       sections.forEach(section => {
+           observer.observe(section);
+       });
+   </script>
+
+   <footer>
+       <small>
+           Derechos de Autor © 2025 | 
+           <a href="#">Política de Privacidad</a> | 
+           <a href="#">Términos y Condiciones</a>
+       </small>
+   </footer>
+   </body>
+   </html>
